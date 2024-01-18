@@ -1,0 +1,9 @@
+float64[6] joints
+
+geometry_msgs/Pose pick_pose_blueball_1
+geometry_msgs/Pose pick_pose_blueball_2
+geometry_msgs/Pose pick_pose_redball_1
+geometry_msgs/Pose pick_pose_redball_2
+
+geometry_msgs/Pose Place_basket_1
+geometry_msgs/Pose Place_basket_2
