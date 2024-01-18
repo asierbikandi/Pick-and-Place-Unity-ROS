@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="ur_robot">
+
+  <xacro:include filename="$(find ur_description)/urdf/inc/ur3e_macro.xacro"/>
+
+  <xacro:ur3e_robot prefix="" />
+
+  <!-- Gripper -->
+
+  <xacro:include filename="$(find robotiq_description)/urdf/robotiq_hande_gripper.urdf.xacro" />
+  <!-- Attach the robotiq hand-e gripper -->
+  <xacro:robotiq_hande_gripper prefix="" parent="coupling" >
+    <origin xyz="0.005 0 0" rpy="0 0 0"/>
+  </xacro:robotiq_hande_gripper> 
+
+  <link name="coupling">
+    <visual>
+      <origin rpy="0 0 0" xyz=".005 0 0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.0375"/>
+      </geometry>
+      <material name="black">
+      <color rgba=".1 .1 .1 1"/>
+    </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz=".005 0 0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.0375"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="coupling_joint" type="fixed">
+    <parent link="tool0" />
+    <child link = "coupling" />
+    <origin rpy="0 0 0" xyz="-0.005 0 0"/>
+  </joint>
+</robot>
